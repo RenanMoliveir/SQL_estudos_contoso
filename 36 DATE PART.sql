@@ -1,0 +1,8 @@
+
+USE ContosoRetailDW
+
+SELECT TOP 5 
+	*
+FROM  FactSales S
+WHERE DATEPART(YEAR, S.DateKey) = 2007 AND
+DATEPART(MONTH, S.DateKey) = 12
