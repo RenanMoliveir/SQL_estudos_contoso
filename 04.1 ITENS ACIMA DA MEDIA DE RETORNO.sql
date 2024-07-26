@@ -1,0 +1,22 @@
+
+USE ContosoRetailDW
+
+-- VERIFICAR A MEDIA DE DEVOLUÇÃO E QUAIS ITENS ESTÃO ACIMA DA MEDIA
+SELECT
+	*
+FROM(SELECT 
+		S.SalesKey,
+		S.ProductKey,
+		P.ProductName,
+		AVG(S.ReturnQuantity) AS MEDIA
+	FROM FactSales S
+	INNER JOIN DimProduct P ON P.ProductKey = S.ProductKey
+	WHERE S.ReturnQuantity >= 1
+	GROUP BY S.SalesKey,	S.ProductKey, P.ProductName
+) AS MEDIA
+WHERE MEDIA > 1
+ORDER BY MEDIA DESC
+/*A CONSULTA CALCULA A MEDIA DE RETORNO POR PRODUTO E DEPOIS RETORNA TODOS ACIMA DA MÉDIA
+O PRODUTO SV Wireless LAN PCI Network Card Adapter E901 Black TEM O MAIOR NUMERO DE RETORNOS */
+
+
