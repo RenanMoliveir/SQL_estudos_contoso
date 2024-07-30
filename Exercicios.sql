@@ -29,7 +29,7 @@ ORDER BY ANO, MES
 
 --------------------------------------------------------------------------
 
--- TRAZER A MEDIA DE QUANTIDADE DE VENDAS NO MÊS DE 2008
+-- TRAZER A MEDIA DE QUANTIDADE DE VENDAS NO ANO DE 2008
 WITH VENDAS_2008 (ANO, MES, QTD_SOLD) AS ( 
 	SELECT 
 		DATEPART(YEAR,S.DateKey) AS ANO,
